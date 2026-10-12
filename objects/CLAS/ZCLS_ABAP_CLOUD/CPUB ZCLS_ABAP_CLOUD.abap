@@ -4,75 +4,71 @@ CLASS zcls_abap_cloud DEFINITION
   CREATE PUBLIC.
 
   PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
 
-    METHODS validate_employee
-      IMPORTING
-        iv_employee_name TYPE string
-        iv_salary        TYPE decfloat34
-      RETURNING VALUE(rv_valid) TYPE abap_boolean.
+    TYPES ty_icon TYPE c LENGTH 4.
 
-    METHODS calculate_bonus
-      IMPORTING
-        iv_salary        TYPE decfloat34
-        iv_bonus_percent TYPE decfloat34
-      RETURNING VALUE(rv_bonus) TYPE decfloat34.
+    TYPES: BEGIN OF ty_row,
+             vbeln   TYPE c LENGTH 10,
+             posnr   TYPE n LENGTH 6,
+             vkorg   TYPE c LENGTH 4,
+             erdat   TYPE d,
+             kunnr   TYPE c LENGTH 10,
+             name1   TYPE c LENGTH 40,
+             matnr   TYPE c LENGTH 40,
+             maktx   TYPE c LENGTH 40,
+             kwmeng  TYPE p LENGTH 13 DECIMALS 3,
+             netwr   TYPE p LENGTH 15 DECIMALS 2,   " header value shown per item row
+             waerk   TYPE c LENGTH 5,
+             faksp   TYPE c LENGTH 2,               " billing block at item
+             gbstk_h TYPE c LENGTH 1,               " header overall status
+             lfstk_h TYPE c LENGTH 1,               " header delivery status
+             fkstk_h TYPE c LENGTH 1,               " header billing status
+             iconrec TYPE ty_icon,                  " recent indicator
+           END OF ty_row.
 
-    METHODS validate_email
-      IMPORTING iv_email TYPE string
-      RETURNING VALUE(rv_valid) TYPE abap_boolean.
+    TYPES tt_rows TYPE STANDARD TABLE OF ty_row WITH EMPTY KEY.
 
-    METHODS validate_quantity
-      IMPORTING iv_quantity TYPE i
-      RETURNING VALUE(rv_valid) TYPE abap_boolean.
+    CONSTANTS c_icon_green  TYPE ty_icon VALUE '@5C@'.
+    CONSTANTS c_icon_grey   TYPE ty_icon VALUE '@5D@'.
+    CONSTANTS c_completed   TYPE c LENGTH 1 VALUE 'C'.
+    CONSTANTS c_mode_header TYPE c LENGTH 1 VALUE 'H'.
+    CONSTANTS c_mode_item   TYPE c LENGTH 1 VALUE 'I'.
 
-    METHODS calculate_discount
-      IMPORTING
-        iv_amount  TYPE decfloat34
-        iv_percent TYPE decfloat34
-      RETURNING VALUE(rv_discount) TYPE decfloat34.
+    METHODS is_recent
+      IMPORTING iv_date          TYPE d
+                iv_today         TYPE d
+      RETURNING VALUE(rv_recent) TYPE abap_bool.
 
-    METHODS calculate_net_amount
-      IMPORTING
-        iv_amount           TYPE decfloat34
-        iv_discount_percent TYPE decfloat34
-      RETURNING VALUE(rv_net_amount) TYPE decfloat34.
+    METHODS recent_icon
+      IMPORTING iv_recent      TYPE abap_bool
+      RETURNING VALUE(rv_icon) TYPE ty_icon.
 
-    METHODS get_employee_grade
-      IMPORTING iv_salary TYPE decfloat34
-      RETURNING VALUE(rv_grade) TYPE string.
+    METHODS is_header_open
+      IMPORTING iv_overall     TYPE c
+                iv_delivery    TYPE c
+                iv_billing     TYPE c
+      RETURNING VALUE(rv_open) TYPE abap_bool.
 
-    METHODS check_date_range
-      IMPORTING
-        iv_start_date TYPE d
-        iv_end_date   TYPE d
-      RETURNING VALUE(rv_valid) TYPE abap_boolean.
+    METHODS is_item_open
+      IMPORTING iv_billing_block TYPE c
+      RETURNING VALUE(rv_open)   TYPE abap_bool.
 
-    METHODS format_employee_name
-      IMPORTING iv_name TYPE string
-      RETURNING VALUE(rv_name) TYPE string.
+    METHODS is_valid_sales_org
+      IMPORTING iv_sales_org    TYPE c
+      RETURNING VALUE(rv_valid) TYPE abap_bool.
 
-    METHODS validate_currency_amount
-      IMPORTING iv_amount TYPE decfloat34
-      RETURNING VALUE(rv_valid) TYPE abap_boolean.
+    METHODS apply_max_rows
+      IMPORTING iv_max  TYPE i
+      CHANGING  ct_rows TYPE tt_rows.
 
-    METHODS calculate_tax
-      IMPORTING
-        iv_amount     TYPE decfloat34
-        iv_tax_percent TYPE decfloat34
-      RETURNING VALUE(rv_tax) TYPE decfloat34.
+    METHODS post_process
+      IMPORTING iv_today TYPE d
+      CHANGING  ct_rows  TYPE tt_rows.
 
-    METHODS check_minimum_order
-      IMPORTING
-        iv_quantity TYPE i
-        iv_minimum  TYPE i
-      RETURNING VALUE(rv_valid) TYPE abap_boolean.
-
-    METHODS calculate_average
-      IMPORTING
-        iv_value1 TYPE decfloat34
-        iv_value2 TYPE decfloat34
-      RETURNING VALUE(rv_average) TYPE decfloat34.
-
-    METHODS validate_bonus_percentage
-      IMPORTING iv_percent TYPE decfloat34
-      RETURNING VALUE(rv_valid) TYPE abap_boolean.
+    METHODS get_data
+      IMPORTING iv_sales_org   TYPE c
+                iv_date_from   TYPE d
+                iv_date_to     TYPE d
+                iv_mode        TYPE c
+      RETURNING VALUE(rt_rows) TYPE tt_rows.
