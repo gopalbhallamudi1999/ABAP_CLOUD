@@ -2963,7 +2963,7 @@
     "APPL":"S",
     "FIXPT":"X",
     "LDBNAME":"D$S",
-    "UCCHECK":"X"
+    "UCCHECK":"5"
    },
    {
     "NAME":"ZCLS_ABAP_CLOUD===============CCDEF",

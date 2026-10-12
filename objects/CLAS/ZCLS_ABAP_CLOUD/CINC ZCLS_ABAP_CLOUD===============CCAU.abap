@@ -1,3 +1,4 @@
+*Changed the check out from QA to DEV*
 CLASS ltc_sales_order_test DEFINITION FINAL
   FOR TESTING
   RISK LEVEL HARMLESS
