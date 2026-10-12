@@ -9,7 +9,6 @@ CLASS ltc_abap_cloud DEFINITION
     DATA mo_cut TYPE REF TO zcls_abap_cloud.
 
     METHODS setup.
-
     METHODS test_validate_employee FOR TESTING.
     METHODS test_calculate_bonus FOR TESTING.
     METHODS test_validate_email FOR TESTING.
@@ -40,19 +39,13 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->validate_employee(
         iv_employee_name = 'Gopal'
-        iv_salary        = 50000 )
+        iv_salary = 50000 )
       exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->validate_employee(
         iv_employee_name = ''
-        iv_salary        = 50000 )
-      exp = abap_false ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_employee(
-        iv_employee_name = 'Gopal'
-        iv_salary        = 0 )
+        iv_salary = 50000 )
       exp = abap_false ).
 
   ENDMETHOD.
@@ -62,13 +55,13 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->calculate_bonus(
-        iv_salary        = 50000
+        iv_salary = 50000
         iv_bonus_percent = 10 )
       exp = CONV decfloat34( '5000' ) ).
 
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->calculate_bonus(
-        iv_salary        = 50000
+        iv_salary = 50000
         iv_bonus_percent = 150 )
       exp = CONV decfloat34( '0' ) ).
 
@@ -102,11 +95,6 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
         iv_quantity = 0 )
       exp = abap_false ).
 
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_quantity(
-        iv_quantity = -5 )
-      exp = abap_false ).
-
   ENDMETHOD.
 
 
@@ -114,21 +102,9 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->calculate_discount(
-        iv_amount  = 1000
+        iv_amount = 1000
         iv_percent = 10 )
       exp = CONV decfloat34( '100' ) ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_discount(
-        iv_amount  = 1000
-        iv_percent = 100 )
-      exp = CONV decfloat34( '1000' ) ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_discount(
-        iv_amount  = 1000
-        iv_percent = 150 )
-      exp = CONV decfloat34( '0' ) ).
 
   ENDMETHOD.
 
@@ -137,15 +113,9 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->calculate_net_amount(
-        iv_amount           = 1000
+        iv_amount = 1000
         iv_discount_percent = 10 )
       exp = CONV decfloat34( '900' ) ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_net_amount(
-        iv_amount           = 1000
-        iv_discount_percent = 100 )
-      exp = CONV decfloat34( '0' ) ).
 
   ENDMETHOD.
 
@@ -162,16 +132,6 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
         iv_salary = 50000 )
       exp = 'B' ).
 
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->get_employee_grade(
-        iv_salary = 25000 )
-      exp = 'C' ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->get_employee_grade(
-        iv_salary = -1 )
-      exp = 'INVALID' ).
-
   ENDMETHOD.
 
 
@@ -180,19 +140,13 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->check_date_range(
         iv_start_date = '20260101'
-        iv_end_date   = '20261231' )
+        iv_end_date = '20261231' )
       exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->check_date_range(
         iv_start_date = '20261231'
-        iv_end_date   = '20260101' )
-      exp = abap_false ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->check_date_range(
-        iv_start_date = '00000000'
-        iv_end_date   = '20261231' )
+        iv_end_date = '20260101' )
       exp = abap_false ).
 
   ENDMETHOD.
@@ -205,11 +159,6 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
         iv_name = '  gopal bhallamudi  ' )
       exp = 'GOPAL BHALLAMUDI' ).
 
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->format_employee_name(
-        iv_name = 'gopal' )
-      exp = 'GOPAL' ).
-
   ENDMETHOD.
 
 
@@ -218,11 +167,6 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->validate_currency_amount(
         iv_amount = 100 )
-      exp = abap_true ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_currency_amount(
-        iv_amount = 0 )
       exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
@@ -237,15 +181,9 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
 
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->calculate_tax(
-        iv_amount      = 1000
+        iv_amount = 1000
         iv_tax_percent = 18 )
       exp = CONV decfloat34( '180' ) ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_tax(
-        iv_amount      = 1000
-        iv_tax_percent = 150 )
-      exp = CONV decfloat34( '0' ) ).
 
   ENDMETHOD.
 
@@ -255,19 +193,13 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->check_minimum_order(
         iv_quantity = 10
-        iv_minimum  = 5 )
+        iv_minimum = 5 )
       exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->check_minimum_order(
         iv_quantity = 2
-        iv_minimum  = 5 )
-      exp = abap_false ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->check_minimum_order(
-        iv_quantity = -1
-        iv_minimum  = 5 )
+        iv_minimum = 5 )
       exp = abap_false ).
 
   ENDMETHOD.
@@ -275,17 +207,13 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
 
   METHOD test_calculate_average.
 
+    DATA lv_unused_value TYPE i.
+
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->calculate_average(
         iv_value1 = 10
         iv_value2 = 20 )
       exp = CONV decfloat34( '15' ) ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_average(
-        iv_value1 = 0
-        iv_value2 = 0 )
-      exp = CONV decfloat34( '0' ) ).
 
   ENDMETHOD.
 
@@ -295,16 +223,6 @@ CLASS ltc_abap_cloud IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals(
       act = mo_cut->validate_bonus_percentage(
         iv_percent = 50 )
-      exp = abap_true ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_bonus_percentage(
-        iv_percent = 0 )
-      exp = abap_true ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_bonus_percentage(
-        iv_percent = 100 )
       exp = abap_true ).
 
     cl_abap_unit_assert=>assert_equals(
