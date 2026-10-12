@@ -1,6 +1,5 @@
-*This is for CALM Summit ANZ-1*
-CLASS ltc_abap_cloud DEFINITION
-  FINAL
+*Changed the check out from QA to DEV*
+CLASS ltc_sales_order_test DEFINITION FINAL
   FOR TESTING
   RISK LEVEL HARMLESS
   DURATION SHORT.
