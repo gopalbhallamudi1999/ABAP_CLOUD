@@ -5,231 +5,198 @@ CLASS ltc_sales_order_test DEFINITION FINAL
   DURATION SHORT.
 
   PRIVATE SECTION.
+    CONSTANTS c_today TYPE d VALUE '20260115'.
 
     DATA mo_cut TYPE REF TO zcls_abap_cloud.
 
     METHODS setup.
-    METHODS test_validate_employee FOR TESTING.
-    METHODS test_calculate_bonus FOR TESTING.
-    METHODS test_validate_email FOR TESTING.
-    METHODS test_validate_quantity FOR TESTING.
-    METHODS test_calculate_discount FOR TESTING.
-    METHODS test_calculate_net_amount FOR TESTING.
-    METHODS test_get_employee_grade FOR TESTING.
-    METHODS test_check_date_range FOR TESTING.
-    METHODS test_format_employee_name FOR TESTING.
-    METHODS test_validate_currency_amount FOR TESTING.
-    METHODS test_calculate_tax FOR TESTING.
-    METHODS test_check_minimum_order FOR TESTING.
-    METHODS test_calculate_average FOR TESTING.
-    METHODS test_validate_bonus_percentage FOR TESTING.
 
+    METHODS recent_today        FOR TESTING.
+    METHODS recent_edge_7       FOR TESTING.
+    METHODS recent_future       FOR TESTING.
+    METHODS not_recent_8        FOR TESTING.
+    METHODS icon_green          FOR TESTING.
+    METHODS icon_grey           FOR TESTING.
+    METHODS header_open         FOR TESTING.
+    METHODS header_completed    FOR TESTING.
+    METHODS header_delivered    FOR TESTING.
+    METHODS header_blank        FOR TESTING.
+    METHODS item_open           FOR TESTING.
+    METHODS item_blocked        FOR TESTING.
+    METHODS sales_org_valid     FOR TESTING.
+    METHODS sales_org_empty     FOR TESTING.
+    METHODS max_rows_cut        FOR TESTING.
+    METHODS max_rows_keep       FOR TESTING.
+    METHODS post_process_recent FOR TESTING.
+    METHODS post_process_old    FOR TESTING.
+    METHODS get_data_header     FOR TESTING.
+    METHODS get_data_item       FOR TESTING.
 ENDCLASS.
 
 
-CLASS ltc_abap_cloud IMPLEMENTATION.
+
+CLASS ltc_sales_order_test IMPLEMENTATION.
 
   METHOD setup.
-    mo_cut = NEW zcls_abap_cloud( ).
+    mo_cut = NEW #( ).
   ENDMETHOD.
 
-
-  METHOD test_validate_employee.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_employee(
-        iv_employee_name = 'Gopal'
-        iv_salary = 50000 )
-      exp = abap_true ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_employee(
-        iv_employee_name = ''
-        iv_salary = 50000 )
-      exp = abap_false ).
-
+  METHOD recent_today.
+    cl_abap_unit_assert=>assert_true(
+      act = mo_cut->is_recent( iv_date = c_today iv_today = c_today )
+      msg = 'Today should be recent' ).
   ENDMETHOD.
 
-
-  METHOD test_calculate_bonus.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_bonus(
-        iv_salary = 50000
-        iv_bonus_percent = 10 )
-      exp = CONV decfloat34( '5000' ) ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_bonus(
-        iv_salary = 50000
-        iv_bonus_percent = 150 )
-      exp = CONV decfloat34( '0' ) ).
-
+  METHOD recent_edge_7.
+    DATA lv_date TYPE d.
+    lv_date = c_today - 7.
+    cl_abap_unit_assert=>assert_true(
+      act = mo_cut->is_recent( iv_date = lv_date iv_today = c_today )
+      msg = 'Boundary 7 days should be recent' ).
   ENDMETHOD.
 
-
-  METHOD test_validate_email.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_email(
-        iv_email = 'user@example.com' )
-      exp = abap_true ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_email(
-        iv_email = 'invalid' )
-      exp = abap_false ).
-
+  METHOD recent_future.
+    DATA lv_date TYPE d.
+    lv_date = c_today + 1.
+    cl_abap_unit_assert=>assert_true(
+      act = mo_cut->is_recent( iv_date = lv_date iv_today = c_today )
+      msg = 'Future date should be recent' ).
   ENDMETHOD.
 
-
-  METHOD test_validate_quantity.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_quantity(
-        iv_quantity = 10 )
-      exp = abap_true ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_quantity(
-        iv_quantity = 0 )
-      exp = abap_false ).
-
+  METHOD not_recent_8.
+    DATA lv_date TYPE d.
+    lv_date = c_today - 8.
+    cl_abap_unit_assert=>assert_false(
+      act = mo_cut->is_recent( iv_date = lv_date iv_today = c_today )
+      msg = 'Older than 7 days should not be recent' ).
   ENDMETHOD.
 
-
-  METHOD test_calculate_discount.
-
+  METHOD icon_green.
     cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_discount(
-        iv_amount = 1000
-        iv_percent = 10 )
-      exp = CONV decfloat34( '100' ) ).
-
+      act = mo_cut->recent_icon( abap_true )
+      exp = '@5C@'
+      msg = 'Recent icon should be green' ).
   ENDMETHOD.
 
-
-  METHOD test_calculate_net_amount.
-
+  METHOD icon_grey.
     cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_net_amount(
-        iv_amount = 1000
-        iv_discount_percent = 10 )
-      exp = CONV decfloat34( '900' ) ).
-
+      act = mo_cut->recent_icon( abap_false )
+      exp = '@5D@'
+      msg = 'Non-recent icon should be grey' ).
   ENDMETHOD.
 
-
-  METHOD test_get_employee_grade.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->get_employee_grade(
-        iv_salary = 100000 )
-      exp = 'A' ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->get_employee_grade(
-        iv_salary = 50000 )
-      exp = 'B' ).
-
+  METHOD header_open.
+    cl_abap_unit_assert=>assert_true(
+      act = mo_cut->is_header_open( iv_overall = 'A' iv_delivery = 'A' iv_billing = 'A' )
+      msg = 'Header with status A should be open' ).
   ENDMETHOD.
 
-
-  METHOD test_check_date_range.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->check_date_range(
-        iv_start_date = '20260101'
-        iv_end_date = '20261231' )
-      exp = abap_true ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->check_date_range(
-        iv_start_date = '20261231'
-        iv_end_date = '20260101' )
-      exp = abap_false ).
-
+  METHOD header_completed.
+    cl_abap_unit_assert=>assert_false(
+      act = mo_cut->is_header_open( iv_overall = 'C' iv_delivery = 'A' iv_billing = 'A' )
+      msg = 'Completed header should not be open' ).
   ENDMETHOD.
 
-
-  METHOD test_format_employee_name.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->format_employee_name(
-        iv_name = '  gopal bhallamudi  ' )
-      exp = 'GOPAL BHALLAMUDI' ).
-
+  METHOD header_delivered.
+    cl_abap_unit_assert=>assert_false(
+      act = mo_cut->is_header_open( iv_overall = 'A' iv_delivery = 'C' iv_billing = 'A' )
+      msg = 'Fully delivered header should not be open' ).
   ENDMETHOD.
 
-
-  METHOD test_validate_currency_amount.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_currency_amount(
-        iv_amount = 100 )
-      exp = abap_true ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_currency_amount(
-        iv_amount = -1 )
-      exp = abap_false ).
-
+  METHOD header_blank.
+    cl_abap_unit_assert=>assert_true(
+      act = mo_cut->is_header_open( iv_overall = ' ' iv_delivery = ' ' iv_billing = ' ' )
+      msg = 'Header with blank status should be open' ).
   ENDMETHOD.
 
-
-  METHOD test_calculate_tax.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_tax(
-        iv_amount = 1000
-        iv_tax_percent = 18 )
-      exp = CONV decfloat34( '180' ) ).
-
+  METHOD item_open.
+    cl_abap_unit_assert=>assert_true(
+      act = mo_cut->is_item_open( '  ' )
+      msg = 'Item without billing block should be open' ).
   ENDMETHOD.
 
-
-  METHOD test_check_minimum_order.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->check_minimum_order(
-        iv_quantity = 10
-        iv_minimum = 5 )
-      exp = abap_true ).
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->check_minimum_order(
-        iv_quantity = 2
-        iv_minimum = 5 )
-      exp = abap_false ).
-
+  METHOD item_blocked.
+    cl_abap_unit_assert=>assert_false(
+      act = mo_cut->is_item_open( '01' )
+      msg = 'Item with billing block should not be open' ).
   ENDMETHOD.
 
-
-  METHOD test_calculate_average.
-
-    DATA lv_unused_value TYPE i.
-
-    cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->calculate_average(
-        iv_value1 = 10
-        iv_value2 = 20 )
-      exp = CONV decfloat34( '15' ) ).
-
+  METHOD sales_org_valid.
+    cl_abap_unit_assert=>assert_true(
+      act = mo_cut->is_valid_sales_org( '1010' )
+      msg = 'Sales Org 1010 should be valid' ).
   ENDMETHOD.
 
+  METHOD sales_org_empty.
+    cl_abap_unit_assert=>assert_false(
+      act = mo_cut->is_valid_sales_org( '' )
+      msg = 'Empty Sales Org should not be valid' ).
+  ENDMETHOD.
 
-  METHOD test_validate_bonus_percentage.
-
+  METHOD max_rows_cut.
+    DATA(lt_rows) = VALUE zcls_abap_cloud=>tt_rows(
+      ( vbeln = '1' ) ( vbeln = '2' ) ( vbeln = '3' ) ( vbeln = '4' ) ( vbeln = '5' ) ).
+    mo_cut->apply_max_rows( EXPORTING iv_max = 3 CHANGING ct_rows = lt_rows ).
     cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_bonus_percentage(
-        iv_percent = 50 )
-      exp = abap_true ).
+      act = lines( lt_rows )
+      exp = 3
+      msg = '5 rows capped at 3 should leave 3' ).
+  ENDMETHOD.
 
+  METHOD max_rows_keep.
+    DATA(lt_rows) = VALUE zcls_abap_cloud=>tt_rows(
+      ( vbeln = '1' ) ( vbeln = '2' ) ).
+    mo_cut->apply_max_rows( EXPORTING iv_max = 5 CHANGING ct_rows = lt_rows ).
     cl_abap_unit_assert=>assert_equals(
-      act = mo_cut->validate_bonus_percentage(
-        iv_percent = 101 )
-      exp = abap_false ).
+      act = lines( lt_rows )
+      exp = 2
+      msg = '2 rows with max 5 should stay 2' ).
+  ENDMETHOD.
 
+  METHOD post_process_recent.
+    DATA(lt_rows) = VALUE zcls_abap_cloud=>tt_rows( ( vbeln = '1' erdat = c_today ) ).
+    mo_cut->post_process( EXPORTING iv_today = c_today CHANGING ct_rows = lt_rows ).
+    cl_abap_unit_assert=>assert_equals(
+      act = lt_rows[ 1 ]-iconrec
+      exp = '@5C@'
+      msg = 'Row created today should get green icon' ).
+  ENDMETHOD.
+
+  METHOD post_process_old.
+    DATA lv_date TYPE d.
+    lv_date = c_today - 10.
+    DATA(lt_rows) = VALUE zcls_abap_cloud=>tt_rows( ( vbeln = '1' erdat = lv_date ) ).
+    mo_cut->post_process( EXPORTING iv_today = c_today CHANGING ct_rows = lt_rows ).
+    cl_abap_unit_assert=>assert_equals(
+      act = lt_rows[ 1 ]-iconrec
+      exp = '@5D@'
+      msg = 'Row older than 7 days should get grey icon' ).
+  ENDMETHOD.
+
+  METHOD get_data_header.
+    DATA lv_from TYPE d.
+    lv_from = c_today - 30.
+    DATA(lt_rows) = mo_cut->get_data( iv_sales_org = '1010'
+                                      iv_date_from = lv_from
+                                      iv_date_to   = c_today
+                                      iv_mode      = zcls_abap_cloud=>c_mode_header ).
+    cl_abap_unit_assert=>assert_equals(
+      act = lines( lt_rows )
+      exp = 3
+      msg = 'Header mode should return 3 open rows' ).
+  ENDMETHOD.
+
+  METHOD get_data_item.
+    DATA lv_from TYPE d.
+    lv_from = c_today - 30.
+    DATA(lt_rows) = mo_cut->get_data( iv_sales_org = '1010'
+                                      iv_date_from = lv_from
+                                      iv_date_to   = c_today
+                                      iv_mode      = zcls_abap_cloud=>c_mode_item ).
+    cl_abap_unit_assert=>assert_equals(
+      act = lines( lt_rows )
+      exp = 2
+      msg = 'Item mode should return 2 open rows' ).
   ENDMETHOD.
 
 ENDCLASS.
