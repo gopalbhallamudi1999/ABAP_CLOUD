@@ -1,7 +1,7 @@
   METHOD build_demo_data.
-    DATA lv_recent TYPE d.
-    DATA lv_older  TYPE d.
-    DATA lv_old    TYPE d.
+    DATA lv_recent TYPE d..
+    DATA lv_older  TYPE d..
+    DATA lv_old    TYPE d..
 
     lv_recent = iv_base - 2.
     lv_older  = iv_base - 10.
