@@ -1,9 +1,9 @@
 CLASS zcls_abap_cloud DEFINITION
   PUBLIC
   FINAL
-  CREATE PUBLIC.
+  CREATE PUBLIC...
 
-  PUBLIC SECTION.
+  PUBLIC SECTION...
     INTERFACES if_oo_adt_classrun.
 
     TYPES ty_icon TYPE c LENGTH 4.
@@ -27,7 +27,7 @@ CLASS zcls_abap_cloud DEFINITION
              iconrec TYPE ty_icon,                  " recent indicator
            END OF ty_row.
 
-    TYPES tt_rows TYPE STANDARD TABLE OF ty_row WITH EMPTY KEY.
+    TYPES tt_rows TYPE STANDARD TABLE OF ty_row WITH EMPTY KEY....
 
     CONSTANTS c_icon_green  TYPE ty_icon VALUE '@5C@'.
     CONSTANTS c_icon_grey   TYPE ty_icon VALUE '@5D@'.
