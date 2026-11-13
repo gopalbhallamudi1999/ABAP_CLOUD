@@ -18,7 +18,7 @@ CLASS zcls_abap_cloud DEFINITION
              matnr   TYPE c LENGTH 40,
              maktx   TYPE c LENGTH 40,
              kwmeng  TYPE p LENGTH 13 DECIMALS 3,
-             netwr   TYPE p LENGTH 15 DECIMALS 2,   " header value shown per item row
+             netwr   TYPE p LENGTH 15 DECIMALS 2,   " header value shown per item row test
              waerk   TYPE c LENGTH 5,
              faksp   TYPE c LENGTH 2,               " billing block at item
              gbstk_h TYPE c LENGTH 1,               " header overall status

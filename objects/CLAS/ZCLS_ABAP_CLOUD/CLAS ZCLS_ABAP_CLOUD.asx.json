@@ -1338,8 +1338,8 @@
     "BCMTDCOM":"",
     "BCMTDSYN":0,
     "BCEVTCAT":0,
-    "TYPESRC_LENG":910,
-    "TYPESRC":"BEGIN OF ty_row,\r\n             vbeln   TYPE c LENGTH 10,\r\n             posnr   TYPE n LENGTH 6,\r\n             vkorg   TYPE c LENGTH 4,\r\n             erdat   TYPE d,\r\n             kunnr   TYPE c LENGTH 10,\r\n             name1   TYPE c LENGTH 40,\r\n             matnr   TYPE c LENGTH 40,\r\n             maktx   TYPE c LENGTH 40,\r\n             kwmeng  TYPE p LENGTH 13 DECIMALS 3,\r\n             netwr   TYPE p LENGTH 15 DECIMALS 2,   \" header value shown per item row\r\n             waerk   TYPE c LENGTH 5,\r\n             faksp   TYPE c LENGTH 2,               \" billing block at item\r\n             gbstk_h TYPE c LENGTH 1,               \" header overall status\r\n             lfstk_h TYPE c LENGTH 1,               \" header delivery status\r\n             fkstk_h TYPE c LENGTH 1,               \" header billing status\r\n             iconrec TYPE ty_icon,                  \" recent indicator\r\n           END OF ty_row\r\n"
+    "TYPESRC_LENG":915,
+    "TYPESRC":"BEGIN OF ty_row,\r\n             vbeln   TYPE c LENGTH 10,\r\n             posnr   TYPE n LENGTH 6,\r\n             vkorg   TYPE c LENGTH 4,\r\n             erdat   TYPE d,\r\n             kunnr   TYPE c LENGTH 10,\r\n             name1   TYPE c LENGTH 40,\r\n             matnr   TYPE c LENGTH 40,\r\n             maktx   TYPE c LENGTH 40,\r\n             kwmeng  TYPE p LENGTH 13 DECIMALS 3,\r\n             netwr   TYPE p LENGTH 15 DECIMALS 2,   \" header value shown per item row test\r\n             waerk   TYPE c LENGTH 5,\r\n             faksp   TYPE c LENGTH 2,               \" billing block at item\r\n             gbstk_h TYPE c LENGTH 1,               \" header overall status\r\n             lfstk_h TYPE c LENGTH 1,               \" header delivery status\r\n             fkstk_h TYPE c LENGTH 1,               \" header billing status\r\n             iconrec TYPE ty_icon,                  \" recent indicator\r\n           END OF ty_row\r\n"
    }
   ]
  },
