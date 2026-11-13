@@ -1,7 +1,7 @@
 CLASS zcls_abap_cloud DEFINITION
   PUBLIC
   FINAL
-  CREATE PUBLIC.
+  CREATE PUBLIC..
 
   PUBLIC SECTION.
     INTERFACES if_oo_adt_classrun.
