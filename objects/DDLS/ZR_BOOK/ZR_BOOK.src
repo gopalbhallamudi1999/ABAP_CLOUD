@@ -1,0 +1,52 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Book - Root Entity'
+define root view entity ZR_BOOK
+  as select from zbook_a
+{
+  key book_uuid             as BookUUID,
+      book_id               as BookID,
+      title                 as Title,
+      author                as Author,
+      genre                 as Genre,
+      @Semantics.amount.currencyCode: 'CurrencyCode'
+      price                 as Price,
+      currency_code         as CurrencyCode,
+      status                as Status,
+
+      // A = Available (green), B = Borrowed (orange)
+      cast( case status
+              when 'A' then 3
+              when 'B' then 2
+              else 0
+            end as abap.int1 ) as StatusCriticality,
+
+      @Semantics.user.createdBy: true
+      local_created_by      as LocalCreatedBy,
+      @Semantics.systemDateTime.createdAt: true
+      local_created_at      as LocalCreatedAt,
+      @Semantics.user.localInstanceLastChangedBy: true
+      local_last_changed_by as LocalLastChangedBy,
+      @Semantics.systemDateTime.localInstanceLastChangedAt: true
+      local_last_changed_at as LocalLastChangedAt,
+      @Semantics.systemDateTime.lastChangedAt: true
+      last_changed_at       as LastChangedAt
+}
+/*+[internal] {
+"BASEINFO":
+{
+"FROM":
+[
+"ZBOOK_A"
+],
+"ASSOCIATED":
+[],
+"BASE":
+[],
+"ANNO_REF":
+[],
+"SCALAR_FUNCTION":
+[],
+"VERSION":0,
+"ANNOREF_EVALUATION_ERROR":""
+}
+}*/

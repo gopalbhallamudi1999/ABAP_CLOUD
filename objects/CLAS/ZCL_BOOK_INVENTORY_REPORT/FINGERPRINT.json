@@ -1,0 +1,62 @@
+{
+ "fingerprints":
+ [
+  {
+   "name":"CINC ZCL_BOOK_INVENTORY_REPORT=====CCDEF.abap",
+   "fingerprint":"wxsuRIsmleOoyxm9UTIVsvSDyrI3xnLY1Z4D61Z2aS8zk0b1meeDqxUVBgpSc7EYYWs5JVaQUXKsGP4SFL1Ntw=="
+  },
+  {
+   "name":"CINC ZCL_BOOK_INVENTORY_REPORT=====CCIMP.abap",
+   "fingerprint":"dodi5tmTq9y1dUXP2nz9Sg2zb331t2guq2c+88ik3ae5sq5QLKxW1OcQcOyTX3H6Q2tZ0GaCw1PYxou+McKrrA=="
+  },
+  {
+   "name":"CINC ZCL_BOOK_INVENTORY_REPORT=====CCMAC.abap",
+   "fingerprint":"fqhYhS/4rXca2urFIvPCul6eStRsYloMWIPm/ZqbjU0Tx06jtsM9okHqI8Yyr4nR3PgFJ8fOtG1dTC70szJz8Q=="
+  },
+  {
+   "name":"CLAS ZCL_BOOK_INVENTORY_REPORT.asx.json",
+   "fingerprint":"adjudi+qlogJ/kV4EI30HL/AlBrUC2AhJFdmLI73GHAHEJgqVyDQhE5SSPO/u+EDnl2w5amuUbLyOux7RpTbGQ=="
+  },
+  {
+   "name":"CLSD ZCL_BOOK_INVENTORY_REPORT.abap",
+   "fingerprint":"IBZYGELWkIPz2OffgZ4m2mniyMNF6DeQuPsEnLXIzIHoixeMG9IHuCF9Cs6qcGKut0dpTAUbqbq8NOE/dxgtWA=="
+  },
+  {
+   "name":"CPRI ZCL_BOOK_INVENTORY_REPORT.abap",
+   "fingerprint":"a/G7Fggz8QdtoZ670gcZYZ+ujGfO3dMqPagib2hrMDlpk/NLhjjkcaO73FBBevSsSmRVcAl3iQGlTjsCIgo/mw=="
+  },
+  {
+   "name":"CPRO ZCL_BOOK_INVENTORY_REPORT.abap",
+   "fingerprint":"Bwol1f0WDE68V4L9wrzh01tS9tVvid4Ca7jeylwt9KvUoC5ucEP5B4fj03zT5OK3uq3ybijGdVcGsi7rjbGfjA=="
+  },
+  {
+   "name":"CPUB ZCL_BOOK_INVENTORY_REPORT.abap",
+   "fingerprint":"Z4X5URRulEEB6449ABbuNvs9sqnFXnd9TGP7gp8+brzs7nHLupzoi+/hHOGQuI67HN+5QOCGS208dZdMX06JlA=="
+  },
+  {
+   "name":"METH GET_AVERAGE_PRICE.abap",
+   "fingerprint":"qSfQIYGvN9oLv+AGYWZ0VhGVZEzH8jCD5wx3xKTyPDpoiBN5jIUVj/76zE9oEgOWDogL4j2o4mJNmD3NmWWofA=="
+  },
+  {
+   "name":"METH GET_GENRE_STATISTICS.abap",
+   "fingerprint":"VFB8aeBz5nmsA42zeJcYkpqAHAUm8EoNOdwkh02ZDyV5t8HSlhpmB550JzZOVdlTT7ahEPPR2xYw7NjtZHoVqw=="
+  },
+  {
+   "name":"METH GET_REPORT_OWNER.abap",
+   "fingerprint":"mDxZDY+kbAm3Iugk2FFpNqUvkaxNPwk9lt8DzVcRGZ2boLWrb310QIJ7jj0ZdfdXpvbLPjrqlpqfOvMY7F4YUg=="
+  },
+  {
+   "name":"METH IF_OO_ADT_CLASSRUN~MAIN.abap",
+   "fingerprint":"aizxQwBEiPQRhAVdinlRrqRo0EExdzurvnFsRCkTvGeHnt1mzO+HuEg9rWoy6sN4EyUbySSGP8EYOSy0kycrVQ=="
+  },
+  {
+   "name":"METH NEW_REPORT_ID.abap",
+   "fingerprint":"QbhxGvRLuH7xknrSxuWk7hsRMNY6XNYq9uF+GF+/t+gYucNJ/CY+tJ0a/5hh8VYk1Rj0YKQyBm5NkFVhppaGrg=="
+  },
+  {
+   "name":"REPS ZCL_BOOK_INVENTORY_REPORT=====CT.abap",
+   "fingerprint":"ogbgBEOP/Ghv/vg3P8x9doDQti//PZzIjklWwUEZD2zAsHVMSD8+4C6TODN66ivBYbk5nPU7jQNZke9xi0iA0A=="
+  }
+ ],
+ "fingerprintAll":"4etZKUOL33EVWz4vUAjF3udwyqkDg6BDfCsaBPDEcyL+E1GXijPOwjve3AefHOeBtoibgDfBPzUVTf6deciu5Q=="
+}

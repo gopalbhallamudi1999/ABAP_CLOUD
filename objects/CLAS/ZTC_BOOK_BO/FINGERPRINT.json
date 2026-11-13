@@ -1,0 +1,94 @@
+{
+ "fingerprints":
+ [
+  {
+   "name":"CINC ZTC_BOOK_BO===================CCDEF.abap",
+   "fingerprint":"9e8QObLe9QFPOh1vBAjPb0Wh5FgacVQqCyspDRyHdh3wrdyAxB4R1LEwtfXPUxDnPXldM4CGBPqq8OGao+pU6Q=="
+  },
+  {
+   "name":"CINC ZTC_BOOK_BO===================CCIMP.abap",
+   "fingerprint":"5SBBtwt+W+CjvjjA9MrtU1XR2ZU/WPUb/5EJnbwqdtDeOm1KojjS9A3mWlyqbrPrRKuZuyhfY8GjMPK+fzYKcg=="
+  },
+  {
+   "name":"CINC ZTC_BOOK_BO===================CCMAC.abap",
+   "fingerprint":"/5q5WSKbsXatPgXx19EaIkFmU2L1lCxqiSOPjxFK6VpZ0w7iYlGXAv1vP0r2ZeQ1RRChIB8ftP5mKbsW5GJ1oA=="
+  },
+  {
+   "name":"CLAS ZTC_BOOK_BO.asx.json",
+   "fingerprint":"+scrTkbeWxqg0W1ulxVd6VD7K/6m8Yq3XlQcRArfMXnJrljFnpbHN/Bfz/zPEMSbpAa51MI0kwt28AUeDNx+/Q=="
+  },
+  {
+   "name":"CLSD ZTC_BOOK_BO.abap",
+   "fingerprint":"nyEqvG0uaJhqyfnclBT9GaupjwMeitMC+wA527fWArS9m+f+IkCwJsVw5w0N4Kzfpjq34eNjAuol47F6hyoN+Q=="
+  },
+  {
+   "name":"CPRI ZTC_BOOK_BO.abap",
+   "fingerprint":"FjaRAJkRpkUcti0zqG3sUPDrU/0jTKfJCKfQ9G0OHokKdAUSEG4Qwoq+xRODy2tbJYBDemIqlPLTmrJ/zBNRuQ=="
+  },
+  {
+   "name":"CPRO ZTC_BOOK_BO.abap",
+   "fingerprint":"z3Zhpkd1TPg5RqylqkGCjKqDS5sdI+fEaMY4jKIrsA1JF+tWROK2PN9I0ZBEMuafmzKjFgywr7lx9VtgvZsIfQ=="
+  },
+  {
+   "name":"CPUB ZTC_BOOK_BO.abap",
+   "fingerprint":"ciF024JjtJzNKpzqgjgjsadpxJG+SIH3aJPSZula50AGGWhd0UwPDAR2D20iEiWEYlm+pb7Ii3f4ey4qssQD9A=="
+  },
+  {
+   "name":"METH BOOK_IDS_ARE_SEQUENTIAL.abap",
+   "fingerprint":"SCzDPpE/1w5QkP90A5eDWG/R68AVmOtc051/M6ijspu7OglCL4dmWYUbD9ahx4jntbLPja4JgApY/OFdnOwAdQ=="
+  },
+  {
+   "name":"METH CLASS_SETUP.abap",
+   "fingerprint":"m6PdKyI+poQLJS0ORiaor2G1VeeugF0j8zSR9MHXqaplIhsvGRLZCkU4RwFBlYBYXBkMvo6ppgQ8Eyk+lQv9Pg=="
+  },
+  {
+   "name":"METH CLASS_TEARDOWN.abap",
+   "fingerprint":"0ZpD3hDFA55YUWL53OaHJMrEfkndRqP/xYgwruSCEz7Fkf8nMlYMLHHR7K0N30Lp/XTZBF3cqxnVM2BSMmWtrw=="
+  },
+  {
+   "name":"METH CREATE_BOOK.abap",
+   "fingerprint":"weyW2Qk/6CIdQbJQ9v2B2Ves52xOjEemYoGOyIw6Lkx3WXGzNK/4GtXR1jinfnOB+sI2FhkorhnNqXzMLbjMYg=="
+  },
+  {
+   "name":"METH MARK_AVAILABLE_SETS_STATUS.abap",
+   "fingerprint":"A+uYHIp9Y21mI1FbRWhGubkBC9PQefGBqCrwL8OXlNJqd+bnKMT/aMLAluaXGpRTvs/LZlAKAU7fkqFrMUdszQ=="
+  },
+  {
+   "name":"METH MARK_BORROWED_SETS_STATUS.abap",
+   "fingerprint":"riPR7WXXx5jQGfeKEUNYv57kJ8tEnjQ2n7gM6SsHNREET/19GFfpIfsSBnepauilequYLu7AIdxJOZJ3qm/FRA=="
+  },
+  {
+   "name":"METH NEGATIVE_PRICE_IS_REJECTED.abap",
+   "fingerprint":"a/W631C+iKnkHcg5ZnbSyNm7cTWPsd34rTzQKU+AaKcn/x2tvWvjRQWT/VqVA8icCheLBWYn3i1cWlop1gYNgQ=="
+  },
+  {
+   "name":"METH NEW_BOOK_GETS_ID_AND_STATUS.abap",
+   "fingerprint":"8FsCNdcUOaj6ycgQ/fyQ5YZiwRSymOVATtYrroRGVBLz8NZyd2bBGO9wS8aJQ5lEkioQvRDDbfHVIlC0486i+w=="
+  },
+  {
+   "name":"METH ONLY_USEFUL_ACTION_ENABLED.abap",
+   "fingerprint":"6B4kJ5UR7y2euJMM0UJV4+x34a2sj8+Dr1WTIWC4ykgDrTbSpHrlr7nzlmrGtQf6ocr35IAIbQDiBkvCLQDEDQ=="
+  },
+  {
+   "name":"METH PRICE_NEEDS_CURRENCY.abap",
+   "fingerprint":"hYnmqNtjTSmOra+nKF3UQ6HKBjuaXh+/VKElAe+108fTTF9ws3DNLSleU9QpKU9lClpwNqf7dJaubPyUC8zWOw=="
+  },
+  {
+   "name":"METH READ_BOOK.abap",
+   "fingerprint":"08W0x4aCJhVGMcfmejAwX1Aa02U5cvGn0acj3LbzIUZ0u6Xb3wJxQyL/tbk0ZHjWu7JS/md6Ann6/fhraG8xGg=="
+  },
+  {
+   "name":"METH SETUP.abap",
+   "fingerprint":"hvgHUUmjFnna3BkpZ2OO3cjn+luSC+VgLPdtpYC9pPYipGQDru2N4IsM7Z/cQlB260jvYbltxz+eSP/9s/+m5A=="
+  },
+  {
+   "name":"METH TEARDOWN.abap",
+   "fingerprint":"txt6cKjtH5OpXZDUcVDZfE2oupRO2tHFJIQpfMJHkpmDIfI3e20K1I6oh0tF8rjssI1NyDCyYmftGH9USGwGiw=="
+  },
+  {
+   "name":"REPS ZTC_BOOK_BO===================CT.abap",
+   "fingerprint":"tvOoHaPpstMoB0sRxPv8UR8HE6NwPOV9aBisludKl8F8pSPuCz5sYDS37dJnRJruobzaVtgu9+oEUZqoHrRObA=="
+  }
+ ],
+ "fingerprintAll":"i8DJ/mfdjd6MFRf1DTHFSMulrz73L2jDQstZdVOLBcRfKG9IOW8LG93YZDFw6vZvNPVEiOIuPIpJ1+Hi1xbk2Q=="
+}
