@@ -1,0 +1,50 @@
+{
+ "fingerprints":
+ [
+  {
+   "name":"CINC ZCL_BOOK_GENERATE_DATA========CCAU.abap",
+   "fingerprint":"1rcBlkwrxvjEggeDKkd7QA+/SsOKoOWPbkJy3h3IQibWOaX9C0BRaWlZzUHaVQag2dgTNrMQK9Bvkt5XjfSP7A=="
+  },
+  {
+   "name":"CINC ZCL_BOOK_GENERATE_DATA========CCDEF.abap",
+   "fingerprint":"VMaZDducxUqYyiSTvtAcvoh/kzQyQmOuwW4iJpfLSUsJuTQMlXBat2RKsvXsxHqK9X4Q0aWVTFo4KWAxPHk8dw=="
+  },
+  {
+   "name":"CINC ZCL_BOOK_GENERATE_DATA========CCIMP.abap",
+   "fingerprint":"Vr+ytctWX9zSFUVClqrM63i/rWkfaK8eYXg4Oo0jptUHpv/sTE9eaISF07cXIxbshiiTFt5raB7wMjds9ToxXA=="
+  },
+  {
+   "name":"CINC ZCL_BOOK_GENERATE_DATA========CCMAC.abap",
+   "fingerprint":"Sq2zaVoVOFpp/8xr4mFtYnb0GlrlRlTwuHZkTH3s4MBjSCDgclQMeGSjzWrqROkQtVUESITK95VVXjlgYJnRpQ=="
+  },
+  {
+   "name":"CLAS ZCL_BOOK_GENERATE_DATA.asx.json",
+   "fingerprint":"LiznJvFYurkP3+D+RwJEjbEULm55HJ9jEJMdbPkM8XyryPfsay46seoUDnZjewf3RaduVP81RqFWFoDMFd/MVg=="
+  },
+  {
+   "name":"CLSD ZCL_BOOK_GENERATE_DATA.abap",
+   "fingerprint":"HxW75LuoHqCwUjt2v1FlouHYRUVBokMm9XvWs9T+YSh7y9IBGPdZX85oqaKtWKrZwBJTAS4NUQMeV22NtI9y9g=="
+  },
+  {
+   "name":"CPRI ZCL_BOOK_GENERATE_DATA.abap",
+   "fingerprint":"y2FMP7i5pdlJJchURVUj2apob0T55pY8UCvvS2JKwRx6gkrZnh3+Qvr2hYQmI+bZT1fRt0iUhDxdxhJJBawT7A=="
+  },
+  {
+   "name":"CPRO ZCL_BOOK_GENERATE_DATA.abap",
+   "fingerprint":"pwOdUkDKP1RwUs4gOfjllfnWrD399eAlYDJcrzTHkiLAsx0aB1eSRfskdQWN0azn3l4DJzLgd3U+207sP6pm5g=="
+  },
+  {
+   "name":"CPUB ZCL_BOOK_GENERATE_DATA.abap",
+   "fingerprint":"c29wuHz/Ro2++f80Wy63XopaLKyK7IcQeHwzF/gSH7O+9Bw0W2pMn9MLGl5zTTKUb9v4+DxMKvj6BWZFgDwZEQ=="
+  },
+  {
+   "name":"METH IF_OO_ADT_CLASSRUN~MAIN.abap",
+   "fingerprint":"IT9ol0JqVXLvLbHvF/bcNFxhpnvX8Z6RoNsqSf7U9JcK/5Tq9VAqPdoy2Z/hr/h6Oi7U1Fvab6gY3uY9PW67FQ=="
+  },
+  {
+   "name":"REPS ZCL_BOOK_GENERATE_DATA========CT.abap",
+   "fingerprint":"VYJgRFGIAclWtCSEd3gk3KCFlpXfm3s7dKGDCCMUlYpgyE9FBQCcaj87O/MldMIPLEiTmDI2+mqKEYI3wp5/8A=="
+  }
+ ],
+ "fingerprintAll":"CVUkjWckgTR+F1LwH88BBNGVJxXpzeipgYVCO9VTt9eZf6OvmFklDMFhfYVi7ykAxv/4HHMMpCwoedF20wn00g=="
+}
