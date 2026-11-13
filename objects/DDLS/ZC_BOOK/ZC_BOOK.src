@@ -1,0 +1,46 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Book - Projection (UI)'
+@Metadata.allowExtensions: true
+@Search.searchable: true
+define root view entity ZC_BOOK
+  provider contract transactional_query
+  as projection on ZR_BOOK
+{
+  key BookUUID,
+      BookID,
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.8
+      Title,
+      @Search.defaultSearchElement: true
+      Author,
+      Genre,
+      Price,
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CurrencyStdVH', element: 'Currency' } }]
+      CurrencyCode,
+      Status,
+      StatusCriticality,
+      LocalCreatedBy,
+      LocalCreatedAt,
+      LocalLastChangedBy,
+      LocalLastChangedAt,
+      LastChangedAt
+}
+/*+[internal] {
+"BASEINFO":
+{
+"FROM":
+[
+"ZR_BOOK"
+],
+"ASSOCIATED":
+[],
+"BASE":
+[],
+"ANNO_REF":
+[],
+"SCALAR_FUNCTION":
+[],
+"VERSION":0,
+"ANNOREF_EVALUATION_ERROR":""
+}
+}*/

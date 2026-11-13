@@ -1,0 +1,29 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Book Genre - Value Help'
+@ObjectModel.resultSet.sizeCategory: #XS
+define view entity ZI_BOOK_GENRE_VH
+  as select distinct from zbook_a
+{
+  key genre as Genre
+}
+where
+  genre <> ''
+/*+[internal] {
+"BASEINFO":
+{
+"FROM":
+[
+"ZBOOK_A"
+],
+"ASSOCIATED":
+[],
+"BASE":
+[],
+"ANNO_REF":
+[],
+"SCALAR_FUNCTION":
+[],
+"VERSION":0,
+"ANNOREF_EVALUATION_ERROR":""
+}
+}*/
